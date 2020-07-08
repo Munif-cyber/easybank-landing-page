@@ -201,12 +201,13 @@
     width: 90%;
     margin: auto;
   }
-  main .third div {
+  main .third h2 {
     -ms-grid-column: 1;
     -ms-grid-column-span: 5;
     grid-column: 1/6;
     padding: 20px;
-    font-size: 2rem;
+    font-size: 1.4rem;
+    font-weight: 300;
   }
   main .third figure {
     width: 95%;

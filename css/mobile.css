@@ -246,9 +246,10 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  main .third div {
+  main .third h2 {
     padding: 20px;
-    font-size: 2rem;
+    font-size: 1.4rem;
+    font-weight: 300;
   }
   main .third figure {
     width: 85%;
