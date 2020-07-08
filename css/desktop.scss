@@ -6,19 +6,8 @@ $LightGrayishBlue: hsl(220, 16%, 96%);
 $VeryLightGray: hsl(0, 0%, 98%);
 $White: hsl(0, 0%, 100%);
 
-@font-face{
-    font-family: public;
-    src: url("/fonts/PublicSans-VariableFont_wght.ttf");
-}
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-size: 1.2rem;
-}
 
-
-@media only screen and (max-width:768px){
+@media only screen and (min-width:769px){
     body{
         font-size: 1.2rem;
         font-family: public;
@@ -31,27 +20,28 @@ $White: hsl(0, 0%, 100%);
         margin:0px auto;
         padding: 20px 0px;
         align-items: center;
-
+        button{
+            margin: 0px;
+        }
         ul~button,ul{
-            display: none;
+            display: flex;
         }
         ul{
-            display: none;
-            visibility: none;
-            flex-direction: column;
+            display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: space-around;
-            border-radius: 5px;
-            position: absolute;
-            top: 70px;
-            left: 50%;
-            transform: translate(-50%,0px);
-            background: $VeryLightGray;
-            height: 45%;
-            width: 90%;
-            padding: 20px 0px;
+            // border-radius: 5px;
+            // position: absolute;
+            // top: 70px;
+            // left: 50%;
+            // transform: translate(-50%,0px);
+            // background: blue;
+            // height: 40%;
+            // width: 90%;
+            // padding: 20px 0px;
             z-index: 10;
-            opacity: 0;
+            // opacity: 0;
             // transition: opacity 1s linear 1s;
             // cursor: normal;
             
@@ -66,6 +56,7 @@ $White: hsl(0, 0%, 100%);
                     color: black;
                     font-size: 1rem;
                     cursor: pointer;
+                    margin: 10px;
                 }
                 a:visited,a:hover,a:active{
                     color: $LimeGreen;
@@ -75,46 +66,28 @@ $White: hsl(0, 0%, 100%);
 
         }
         ul.open{
-            display: flex;
+            display: none;
             opacity: 1;
             // z-index: 10;   
         }
         
         .menu{
-            display: flex;
+            display: none;
             align-items: center;
             cursor: pointer;
-            #menu-close{
-                display: none;
-            }
-            #menu-close.open{
-                display: flex;
-            }
-            #menu-open.open{
-                display: none;
-            }
+            // #menu-close{
+            //     display: none;
+            // }
+            // #menu-close.open{
+            //     display: flex;
+            // }
+            // #menu-open.open{
+            //     display: none;
+            // }
         }
 
     }
     main{
-        .cover{
-            position: absolute;
-            display: flex;
-            // background: pink;
-            background-image: linear-gradient(to bottom, $DarkBlue,white);
-            width: 100%;
-            height:90%;
-            opacity: 0;
-            z-index: 9;
-            transition: height,opacity 1s ease-out 0.1s;
-            
-        }
-        .cover.open{
-            opacity: 0.8;
-            display:flex;
-            height:190%;
-            // z-index:9;
-        }
       
         img{
             width: 100%;
@@ -122,37 +95,41 @@ $White: hsl(0, 0%, 100%);
         }
         display: grid;
         grid-template-columns: auto;
-        // grid-template-rows: repeat(3,1fr);
-        
+        // grid-template-rows: repeat(4,auto);
         height: auto;
-        .cont{
+        .cont.first{
             // background: $GrayishBlue; 
             display: flex;
-            flex-direction: column;
+            flex-direction: row-reverse;
             grid-auto-rows: 0px;
             align-items: center;
             height: auto;
+            overflow-x: hidden;
+            // background: blue;
             .bg{
                 // display: flex;
                 // align-items: cent;
                 width: 100%;
                 height: auto;
                 // background: brown;
-                background-image: url("/images/bg-intro-mobile.svg");
+                background-image: url("/images/bg-intro-desktop.svg");
                 background-repeat: no-repeat;
-                background-position: top right;
-                background-size: contain;
-                background-size: 100% 80%;
+                background-position: -150% -220%;
+                // transform: scaleX(-1);
+                // background-size: contain;
+                background-size: 120% 90%;
                 img{
                     width: 94.5%;
                     height: auto;
                     position: relative; 
                     margin: 0px auto;
-                    top:-135px;
-                    left: 12px;
+                    top:-65px;
+                    right:-50%;
                     transform: translate(-1px,0px);
                     // background: black;
-                    clip-path: inset(135px 0px 0px 0px);
+                    clip-path: inset(65px 0px 0px 0px);
+                    // visibility: hidden;
+                    
                     
                     
                 }
@@ -163,33 +140,47 @@ $White: hsl(0, 0%, 100%);
                 // background-color: blue;
                 margin-bottom: 150px;
                 width: 85%;
-                align-items: center;
+                align-items: flex-start;
+                margin-left: 5%;
                 h1{
                     font-size: 2rem;
-                    text-align: center;
+                    text-align: left;
                     color: black;
+                    width:95%;
                 }
                 span{
                     font-size: 1rem;
                     margin-top: 20px;
-                    text-align: center;
+                    text-align: left;
                     color: $GrayishBlue;
                 }
                
             }
         }
         .second{
+            display:grid;
+            grid-template-columns: repeat(4,auto);
+            grid-column-gap:15px;
+            // grid-template-rows: 1fr 1fr ;
             background: $VeryLightGray;
             justify-content: center;
             width: 90%;
             margin: 0px auto 100px;
+            // background: blue;
+            z-index: 11;
+            // height: 300px;
+            // flex-direction: row;
             
             .choose{
-                text-align: center;
+                grid-column: 1/6;
+                height: auto;
+                text-align: left;
                 margin-bottom: 50px;
+                width: 60%;
+                // justify-self:;
                 h2{
                     font-size: 1.5rem;
-                    width: 50%;
+                    // width: 50%;
                     margin:  20px auto;
                 }
                 span{
@@ -199,38 +190,45 @@ $White: hsl(0, 0%, 100%);
                 }
             }
             .reason{
-                margin: 20px auto;
+                margin: 20px 0px;
                 display:flex;
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
                 
                 .bold{
                     font-weight: 700;
-                    margin: 20px;
+                    margin: 20px 0px;
                 }
                 .text{
                     font-size: 1rem;
-                    text-align: center;
+                    text-align: left;
                     font-weight: 300;
                     color: $GrayishBlue;
                 }
             }
         }
         .third{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(5,auto);
+            // flex-direction: column;
+            width: 90%;
+            margin:auto;
+            // grid-column-gap:15px;
+            // background: #ffc0cb;
+            // align-items:;
+            // justify-content: space-around;
             div{
+                grid-column: 1/6;
                 padding: 20px;
                 font-size: 2rem;
             }
             figure{
-                width: 85%;
-                margin:30px 0px;
+                width: 95%;
+                margin:20px 0px;
                 figcaption{
                     display: flex;
                     flex-direction: column;
-                    width: 80%;
+                    width: 100%;
                     margin: 0 auto;
                     line-height: 22px;
                     .small{
@@ -259,20 +257,30 @@ $White: hsl(0, 0%, 100%);
         footer{
             width: 100%;
             background: $DarkBlue;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
             .darkblue{
                 // background-color: blue;
-                width: 85%;
-                margin: 100px auto 30px;
-                display: flex;
-                flex-direction: column;
+                width: 90%;
+                margin: 50px auto 30px;
+                display: grid;
+                // flex-direction: row;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-column-gap:20px;
+                grid-template-rows: 1fr;
                 align-items: center;
+                justify-content: space-between;
                 .easy{
+                    height: 110px;
+                    // background: blue;
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
+                    align-items: flex-start;
+                    justify-content: space-between;
                     .comp{
-                        width: 80%;
-                        padding: 30px 0px 20px;
+                        width: 160px;
+                        padding: 0px ;
                         img{
                             background-color: white;
                         }
@@ -281,6 +289,7 @@ $White: hsl(0, 0%, 100%);
                         display: flex;
                         align-items: center;
                         img{
+
                             margin:10px;
                             cursor:pointer;
                             &:hover{
@@ -290,11 +299,15 @@ $White: hsl(0, 0%, 100%);
                     }
                 }
                 .footer-links{
-                    margin: 10px 0px 0px;
+                    margin: 0px 0px 0px 0px;
                     ul{
-                        text-align:center;
+                        text-align:left;
+                        display:grid;
+                        grid-template-columns: 1fr 1fr ;
+                        grid-template-rows: repeat(3,auto) ;
                         li{
                             list-style: none;
+                            // background: red;
                             padding: 5px 0px;
                             a{
                                 text-decoration: none;
@@ -311,8 +324,8 @@ $White: hsl(0, 0%, 100%);
                 .button{
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    width: 80%;
+                    align-items: flex-end;
+                    width: auto;
                     .copy{
                         color: white;
                         font-size: 0.7rem;
@@ -328,7 +341,7 @@ $White: hsl(0, 0%, 100%);
                 font-size: 0.8rem; 
                 text-align: center; 
                 color: $GrayishBlue;
-                margin-bottom:20px;
+                margin-bottom: 20px;
                 a { 
                     color: $BrightCyan; 
                     font-size: .8rem;
@@ -351,4 +364,11 @@ button{
         // background: $LimeGreen;
         opacity:0.8;
     }
+}
+@media only screen and (min-width: 600px){
+    button{
+        padding: 10px 20px;
+        font-size: 0.7rem;
+    }
+    
 }
